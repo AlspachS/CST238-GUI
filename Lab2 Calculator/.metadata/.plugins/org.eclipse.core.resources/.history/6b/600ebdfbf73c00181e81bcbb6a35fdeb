@@ -1,0 +1,8 @@
+import javax.swing.JTextField;
+
+public class Screen extends JTextField {
+
+	public void setEditable(boolean b) {
+		super.setEditable(false);
+	}
+}

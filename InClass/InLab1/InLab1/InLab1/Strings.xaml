@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:InLab1"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    >
+    <sys:String x:Key="WindowTitle">Steven Alspach</sys:String>
+    <sys:String x:Key="RunTaskButton">Start Long-Running Task</sys:String>
+    <sys:String x:Key="CheckGUIButton">Check UI Responsiveness</sys:String>
+    <sys:String x:Key="FirstTask">Finish check-off assignment</sys:String>
+    <sys:String x:Key="SecondTask">Save the whales</sys:String>
+    <sys:String x:Key="ThirdTask">End global warming</sys:String>
+
+</ResourceDictionary>

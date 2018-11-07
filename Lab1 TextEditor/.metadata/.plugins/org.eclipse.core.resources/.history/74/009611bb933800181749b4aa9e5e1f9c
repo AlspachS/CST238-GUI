@@ -1,0 +1,77 @@
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class TextEditorMenu extends JMenuBar {
+	EditorArea mEditor;
+
+	public TextEditorMenu(EditorArea editor) {
+		mEditor = editor;
+		JMenu menu;
+		menu = new JMenu("File");
+		add(menu);
+
+		JMenuItem item;
+		item = new JMenuItem("Load");
+		menu.add(item);
+		item = new JMenuItem("Save");
+		menu.add(item);
+		item = new JMenuItem("Exit");
+		menu.add(item);
+
+		menu = new JMenu("Typeface");
+		add(menu);
+
+		item = new JMenuItem("Monospace");
+		item.addActionListener(new TypefaceAction(mEditor, Font.MONOSPACED));
+		menu.add(item);
+		item = new JMenuItem("Serif");
+		item.addActionListener(new TypefaceAction(mEditor, Font.SERIF));
+		menu.add(item);
+		item = new JMenuItem("Sans Serif");
+		item.addActionListener(new TypefaceAction(mEditor, Font.SANS_SERIF));
+		menu.add(item);
+
+		menu = new JMenu("Style");
+		add(menu);
+
+		item = new JMenuItem("Plain");
+		item.addActionListener(new StyleAction(mEditor, Font.PLAIN));
+		menu.add(item);
+		item = new JMenuItem("Bold");
+		item.addActionListener(new StyleAction(mEditor, Font.BOLD));
+		menu.add(item);
+		item = new JMenuItem("Italics");
+		item.addActionListener(new StyleAction(mEditor, Font.ITALIC));
+		menu.add(item);
+	}
+
+	public class StyleAction implements ActionListener {
+		int mStyle;
+
+		public StyleAction(EditorArea editor, int style) {
+			mStyle = style;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			System.out.println(mStyle);
+		}
+
+	}
+
+	public class TypefaceAction implements ActionListener {
+		String mTypeface;
+
+		public TypefaceAction(EditorArea editor, String typeface) {
+			mTypeface = typeface;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			System.out.println(mTypeface);
+		}
+	}
+}

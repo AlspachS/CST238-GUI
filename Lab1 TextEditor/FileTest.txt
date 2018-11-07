@@ -1,0 +1,7 @@
+save shit with a bufferedreader on top of a filewriter
+test giving it a new line
+adding a third new line
+used a bufferedreader to write the file
+used a scanner to read the file
+using two different methods to read and write a file feels weird...
+super long line that creates scroll bars.  random text from here -> al;ajsdlf alksd jlfk ajl;sdkjfl; kas;ldkjfl akd;lfja l;jdflj alsdfla ljfalsdf la;dlfjla kjdfl;kasdlkfj laksdjfl kajsdfl; l end of line

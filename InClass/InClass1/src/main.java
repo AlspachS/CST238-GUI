@@ -1,0 +1,15 @@
+import javax.swing.JFrame;
+
+public class main {
+	public static void main(String[] args) {
+		  JFrame frame = new JFrame();
+		  frame.setSize(600,400);
+		  frame.setTitle("Steven Alspach");
+		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		  frame.add(new MyPanel_1());
+
+		  frame.setVisible(true);
+		}
+
+}

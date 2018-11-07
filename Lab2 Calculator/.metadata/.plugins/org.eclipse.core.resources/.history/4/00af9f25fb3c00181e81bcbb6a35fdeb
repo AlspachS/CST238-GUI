@@ -1,0 +1,19 @@
+import java.awt.Font;
+
+import javax.swing.JTextField;
+
+public class Screen extends JTextField {
+	
+	public Screen() {
+		
+	}
+	
+	public void addDigit(String numeral) {
+		
+		setText(getText().concat(numeral));
+	}
+	
+	public void getValue() {
+		
+	}
+}

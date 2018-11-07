@@ -1,0 +1,19 @@
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class TextEditorMenu extends JMenuBar {
+	public TextEditorMenu() {
+		JMenu menu;
+		menu = new JMenu("File");
+		add(menu);
+		
+		JMenuItem item;
+		item = new JMenuItem("Load");
+		menu.add(item);
+		item = new JMenuItem("Save");
+		menu.add(item);
+		item = new JMenuItem("Exit");
+		menu.add(item);
+	}
+}

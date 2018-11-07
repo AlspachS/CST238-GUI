@@ -1,0 +1,11 @@
+import javax.swing.JButton;
+
+public class NumericButton extends JButton {
+	String mDisplayString;
+	Screen mDisplayArea;
+	
+	public NumericButton(String value, Screen display) {
+		setText(mDisplayString = value);
+		mDisplayArea = display;
+	}
+}

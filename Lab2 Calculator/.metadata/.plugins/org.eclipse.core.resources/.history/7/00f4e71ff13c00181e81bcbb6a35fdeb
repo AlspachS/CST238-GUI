@@ -1,0 +1,238 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class Calculator extends JPanel {
+
+	public Calculator() {
+		GridBagLayout mLayout = new GridBagLayout();
+		setLayout(mLayout);
+		
+		GridBagConstraints cuffs = new GridBagConstraints();
+		cuffs.insets = new Insets(5, 5, 5, 5);
+		
+		cuffs.gridx = 0;
+		cuffs.gridy = 0;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 1;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new Screen());
+		
+		cuffs.gridx = 0;
+		cuffs.gridy = 1;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("C"), cuffs);
+		
+		cuffs.gridx = 1;
+		cuffs.gridy = 1;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("+/-"), cuffs);
+		
+		cuffs.gridx = 2;
+		cuffs.gridy = 1;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("/"), cuffs);
+		
+		cuffs.gridx = 3;
+		cuffs.gridy = 1;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("X"), cuffs);
+		
+		cuffs.gridx = 0;
+		cuffs.gridy = 2;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("7"), cuffs);
+		
+		cuffs.gridx = 1;
+		cuffs.gridy = 2;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("8"), cuffs);
+		
+		cuffs.gridx = 2;
+		cuffs.gridy = 2;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("9"), cuffs);
+		
+		cuffs.gridx = 3;
+		cuffs.gridy = 2;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("-"), cuffs);
+		
+		cuffs.gridx = 0;
+		cuffs.gridy = 3;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("4"), cuffs);
+		
+		cuffs.gridx = 1;
+		cuffs.gridy = 3;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("5"), cuffs);
+		
+		cuffs.gridx = 2;
+		cuffs.gridy = 3;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("6"), cuffs);
+		
+		cuffs.gridx = 3;
+		cuffs.gridy = 3;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("+"), cuffs);
+		
+		cuffs.gridx = 0;
+		cuffs.gridy = 4;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("1"), cuffs);
+		
+		cuffs.gridx = 1;
+		cuffs.gridy = 4;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("2"), cuffs);
+		
+		cuffs.gridx = 2;
+		cuffs.gridy = 4;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("3"), cuffs);
+		
+		cuffs.gridx = 3;
+		cuffs.gridy = 4;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 2;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.VERTICAL;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("="), cuffs);
+		
+		cuffs.gridx = 0;
+		cuffs.gridy = 5;
+		cuffs.gridwidth = 2;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.HORIZONTAL;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new NumericButton("0"), cuffs);
+		
+		cuffs.gridx = 1;
+		cuffs.gridy = 5;
+		cuffs.gridwidth = 1;
+		cuffs.gridheight = 1;
+		cuffs.weightx = 0;
+		cuffs.weighty = 0;
+		cuffs.fill = GridBagConstraints.BOTH;
+		cuffs.anchor = GridBagConstraints.CENTER;
+		add(new JButton("."), cuffs);
+		
+//		cuffs.gridx = 2;
+//		cuffs.gridy = 5;
+//		cuffs.gridwidth = 1;
+//		cuffs.gridheight = 1;
+//		cuffs.weightx = 0;
+//		cuffs.weighty = 0;
+//		cuffs.fill = GridBagConstraints.BOTH;
+//		cuffs.anchor = GridBagConstraints.CENTER;
+//		add(new JButton("/"), cuffs);
+//		
+//		cuffs.gridx = 3;
+//		cuffs.gridy = 5;
+//		cuffs.gridwidth = 1;
+//		cuffs.gridheight = 1;
+//		cuffs.weightx = 0;
+//		cuffs.weighty = 0;
+//		cuffs.fill = GridBagConstraints.BOTH;
+//		cuffs.anchor = GridBagConstraints.CENTER;
+//		add(new JButton("X"), cuffs);
+	}
+	
+	
+	private class ButtonListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+		
+	}
+}

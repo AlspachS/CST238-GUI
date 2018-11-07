@@ -1,0 +1,7 @@
+import javax.swing.JMenuBar;
+
+public class TextEditorMenu extends JMenuBar {
+	public TextEditorMenu() {
+		JMenu 
+	}
+}

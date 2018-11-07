@@ -1,0 +1,71 @@
+﻿<Window x:Class="FlamingProgressBar.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Flaming Progress Bar Test" SizeToContent="WidthAndHeight">
+
+    <Window.Resources>
+
+        <Style TargetType="ProgressBar">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="100" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ProgressBar">
+
+                        <!-- Custom progress bar goes here -->
+                        <Ellipse Name="PART_Track" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" >
+                            <Ellipse.Fill>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="{TemplateBinding Background}">
+                                            <Rectangle Name="PART_Indicator" HorizontalAlignment="Left" Height="{TemplateBinding Height}" Fill="{TemplateBinding Foreground}" />
+                                        </Border>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Ellipse.Fill>
+                            <!-- We want this progress bar to go bottom-up, not left-to-right.  So rotate it. -->
+                            <Ellipse.LayoutTransform>
+                                <RotateTransform Angle="-90" />
+                            </Ellipse.LayoutTransform>
+                        </Ellipse>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!--
+    This just displays the fire itself
+    <Grid>
+        <Rectangle>
+            <Rectangle.Fill>
+                <ImageBrush x:Name="img" />
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+    -->
+    
+    <!-- This shows the fire in ellipses, at various levels of progress-->
+    <StackPanel Orientation="Horizontal">
+        <!-- All the progress bars will share one image, for performance purposes -->
+        <Ellipse Stroke="Green" Visibility="Hidden">
+            <Ellipse.Fill>
+                <ImageBrush x:Name="img" Stretch="Fill">
+                    <!--
+                    Rotate the image 90 degrees because the progress bars will be rotated 90 degrees.
+                         Without this, the fire goes horizontally -->
+                    <ImageBrush.RelativeTransform>
+                        <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <ProgressBar Value="0"   Foreground="{Binding ElementName=img}" Background="Black"/>
+        <ProgressBar Value="25"  Foreground="{Binding ElementName=img}" Background="Black"/>
+        <ProgressBar Value="50"  Foreground="{Binding ElementName=img}" Background="Black"/>
+        <ProgressBar Value="75"  Foreground="{Binding ElementName=img}" Background="Black"/>
+        <ProgressBar Value="100" Foreground="{Binding ElementName=img}" Background="Black"/>
+    </StackPanel>
+</Window>

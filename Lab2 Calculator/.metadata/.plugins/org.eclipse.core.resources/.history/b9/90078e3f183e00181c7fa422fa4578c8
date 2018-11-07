@@ -1,0 +1,31 @@
+import java.awt.Font;
+
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class Screen extends JTextField {
+
+	public Screen() {
+		setText("0");
+		setEditable(false);
+		setHorizontalAlignment(SwingConstants.RIGHT);
+	}
+
+	public void addDigit(String numeral) {
+		String current = getText();
+		if (!current.equals("0")) {
+			
+			setText(current += numeral);
+		} else if(current.equals("0")) {
+			setText(numeral);
+		}
+	}
+
+	public double getValue() {
+		return Double.parseDouble(getText());
+	}
+	
+	public void setValue(double value) {
+		setText(Double.toString(value));
+	}
+}

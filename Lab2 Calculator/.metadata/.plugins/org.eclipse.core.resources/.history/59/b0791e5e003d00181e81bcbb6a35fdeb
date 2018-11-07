@@ -1,0 +1,23 @@
+import java.awt.Font;
+
+import javax.swing.JTextField;
+
+public class Screen extends JTextField {
+	
+	public Screen() {
+		setText("0");
+		
+	}
+	
+	public void addDigit(String numeral) {
+		String current = getText();
+		if (current.equals("0") && numeral.equals("0"))
+		{}
+		else 
+			setText(current.concat(numeral));
+	}
+	
+	public void getValue() {
+		
+	}
+}

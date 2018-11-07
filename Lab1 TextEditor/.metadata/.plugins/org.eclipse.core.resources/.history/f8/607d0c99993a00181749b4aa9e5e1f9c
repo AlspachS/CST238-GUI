@@ -1,0 +1,108 @@
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class TextEditorMenu extends JMenuBar {
+	EditorArea mEditor;
+	JFrame mWindow;
+
+	public TextEditorMenu(JFrame window, EditorArea editor) {
+		mEditor = editor;
+		mWindow = window;
+
+		JMenu menu = new JMenu("File");
+		add(menu);
+
+		JMenuItem item = new JMenuItem("Load");
+		item.addActionListener(new LoadAction());
+		menu.add(item);
+		item = new JMenuItem("Save");
+		item.addActionListener(new SaveAction());
+		menu.add(item);
+		item = new JMenuItem("Exit");
+		item.addActionListener(new ExitAction());
+		menu.add(item);
+
+		menu = new JMenu("Typeface");
+		add(menu);
+
+		item = new JMenuItem("Monospace");
+		item.addActionListener(new TypefaceAction(mEditor, Font.MONOSPACED));
+		menu.add(item);
+		item = new JMenuItem("Serif");
+		item.addActionListener(new TypefaceAction(mEditor, Font.SERIF));
+		menu.add(item);
+		item = new JMenuItem("Sans Serif");
+		item.addActionListener(new TypefaceAction(mEditor, Font.SANS_SERIF));
+		menu.add(item);
+
+		menu = new JMenu("Style");
+		add(menu);
+
+		item = new JMenuItem("Plain");
+		item.addActionListener(new StyleAction(mEditor, Font.PLAIN));
+		menu.add(item);
+		item = new JMenuItem("Bold");
+		item.addActionListener(new StyleAction(mEditor, Font.BOLD));
+		menu.add(item);
+		item = new JMenuItem("Italic");
+		item.addActionListener(new StyleAction(mEditor, Font.ITALIC));
+		menu.add(item);
+	}
+
+	public class StyleAction implements ActionListener {
+		int mStyle;
+
+		public StyleAction(EditorArea editor, int style) {
+			mStyle = style;
+			mEditor = editor;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			mEditor.setStyle(mStyle);
+		}
+	}
+
+	public class TypefaceAction implements ActionListener {
+		String mTypeface;
+
+		public TypefaceAction(EditorArea editor, String typeface) {
+			mTypeface = typeface;
+			mEditor = editor;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			mEditor.setTypeface(mTypeface);
+		}
+	}
+
+	public class ExitAction implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			mWindow.dispatchEvent(new WindowEvent(mWindow, WindowEvent.WINDOW_CLOSING));
+		}
+	}
+
+	public class SaveAction implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			JFileChooser fileDialog = new JFileChooser();
+			fileDialog.showSaveDialog(mWindow);
+		}
+	}
+
+	public class LoadAction implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			JFileChooser fileDialog = new JFileChooser();
+			fileDialog.showOpenDialog(mEditor);
+		}
+	}
+}

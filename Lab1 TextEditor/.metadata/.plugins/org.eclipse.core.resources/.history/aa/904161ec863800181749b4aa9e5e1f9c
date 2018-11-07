@@ -1,0 +1,24 @@
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class TextEditor {
+
+	public static void main(String[] args) {
+		JFrame window = new JFrame();
+		window.setSize(600, 400);
+		window.setTitle("Steven Alspach");
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		window.setJMenuBar(new TextEditorMenu());
+		
+		JTextArea editor = new JTextArea();
+		JScrollPane scroller = new JScrollPane(editor);
+		editor.setEditable(true);
+		
+		window.add(scroller);
+		
+		window.setVisible(true);
+	}
+
+}
